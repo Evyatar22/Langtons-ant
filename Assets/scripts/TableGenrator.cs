@@ -36,8 +36,6 @@ public class TableGenrator : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                GenerateLine(new Vector3(canvas.sizeDelta.x / 2f, y * dis + boxSize.y / 2 + distance / 2, 0f), false);
-
                 Image img = Instantiate(box, new Vector3(x * dis, y * dis, 0f), transform.rotation);
                 img.rectTransform.SetParent(canvas.GetComponent<RectTransform>());
                 img.rectTransform.sizeDelta = boxSize;
@@ -46,6 +44,11 @@ public class TableGenrator : MonoBehaviour
             }
             GenerateLine(new Vector3(x * dis + boxSize.x / 2 + distance / 2, canvas.sizeDelta.y / 2f, 0f), true);
         }
+
+        for(int y = 0; y < height; y++)
+        {
+             GenerateLine(new Vector3(canvas.sizeDelta.x / 2f, y * dis + boxSize.y / 2 + distance / 2, 0f), false);
+        {
     }
 
     private void GenerateLine(Vector3 pos, bool side)
